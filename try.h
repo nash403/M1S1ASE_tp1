@@ -1,21 +1,14 @@
 /*
  * try.h
- *
- * Library used to save and restore function contexts.
- *
- * Authors: Armand BOUR, Tristan CAMUS
+ * Authors: Honoré NINTUNZE
  *
  */
 
-/*
- * Magic value used to make sure the structure has been initialized before trying
- * to restore a context.
- */
 
-/* Struct describing a saved context. */
+/* Struct for saving a context */
 struct ctx_s {
-    void * ctx_ebp;             /* Saved extended base pointer */
-    void * ctx_esp;             /* Saved extended stack pointer */
+    void * ctx_ebp;
+    void * ctx_esp;
 };
 
 /* 
@@ -28,6 +21,6 @@ int try(struct ctx_s * pctx, func_t * f, int arg);
 
 
 /*
- * Restores the context saved into the struct.
+ * Restores the context previously saved.
  */
 int throw(struct ctx_s * pctx, int r);
