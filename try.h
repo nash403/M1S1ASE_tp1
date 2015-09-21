@@ -4,6 +4,7 @@
  *
  */
 
+typedef int (func_t) (int); /* a function that returns an int form an int */
 
 /* Struct for saving a context */
 struct ctx_s {

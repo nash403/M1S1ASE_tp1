@@ -1,13 +1,16 @@
 CC=gcc
 CFLAGS=-m32 -Wall -g
 
-all: display_stack
+all: display_stack try_mul
 
-try.o: try.c try.h
-	$(CC) -o try.o 
+try.o:
+	$(CC) -o try.h try.c
 
-try_mul: try.o try.h try_mul.c
+try_mul: try.o
 	$(CC) -o try_mul try_mul.c $(CLFAGS)
 
 display_stack: display_stack.c
 	$(CC) -o display_stack display_stack.c $(CFLAGS)
+
+clean:
+	rm -f *~ *.o display_stack try_mul

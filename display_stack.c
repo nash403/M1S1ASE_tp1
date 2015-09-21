@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* void print_register_values(){ */
-/*   int esp,ebp; */
-  
-/*   asm("movl %%esp %0":"=r"(esp)); */
-/*   asm("movl %%ebp %0":"=r"(ebp)); */
-  
-/*   printf("esp: %d\tebp: %d\n"); */
-/* } */
-
 static int * bos;
 static int * tos;
 
@@ -22,11 +13,11 @@ void dipslay_stack(char* name)
     : "=r" (bos),
       "=r" (tos)::);
   
-  printf("function %s:\nebp: addr:0x%08x, value:0x%08x\nesp: addr:0x%08x, value:0x%08x\n\n", name, bos, *bos, tos, *tos);
-  printf("Pile :\n");
-  for (i=tos;i<bos;i+=1)
+  printf("Fonction %s:\nebp: addr:0x%08x, value:%08x\nesp: addr:0x%08x, value:%08x\n\n", name, bos, *bos, tos, *tos);
+  printf("Sommet de Pile :\n");
+  for (i=tos;i<=bos;i+=1)
     printf("\t-> 0x%08x\t: %08x\n",i,*i);
-  printf("Fin pile\n\n");
+  printf("Base de pile\n\n");
 }
 
 void f1()
