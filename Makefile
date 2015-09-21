@@ -11,6 +11,7 @@ try_mul: try.o
 
 display_stack: display_stack.c
 	$(CC) -o display_stack display_stack.c $(CFLAGS)
+	./display_stack
 
 clean:
 	rm -f *~ *.o display_stack try_mul
